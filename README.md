@@ -15,13 +15,20 @@ python scrapper.py --query-body "Your Query Here" --include-retweets --query-lan
 
 ### `postprocess.py`
 
-This script processes CSV files containing tweet data. It extracts Arabic text, translates it to English (if applicable), and saves the results to a new CSV file.
+This script is designed to process CSV files containing tweet data. It performs the following tasks:
+
+1. **Arabic Text Extraction**: The script first extracts Arabic text from each tweet using a regular expression pattern. This pattern matches Arabic Unicode characters, allowing the script to identify and extract Arabic text segments.
+
+2. **Translation with Hugging Face**: The extracted Arabic text is then passed through a Hugging Face translation pipeline. The pipeline uses the model `Helsinki-NLP/opus-mt-tc-big-ar-en` to perform Arabic to English translation. This enables the script to generate English translations for the Arabic text segments.
+
+3. **Handling Language Variance**: If a tweet is not in Arabic (as determined by its language code), the script marks it as "not arabic" in the translation column.
+
+4. **CSV Output**: The translated results are then appended to the DataFrame in a new column labeled `translation`. The combined DataFrame is then saved to a new CSV file with a unique timestamp.
 
 Usage:
 ```bash
 python postprocess.py --folder-path "./data"
 ```
-
 ### `utils.py`
 
 This module contains utility functions used by the above scripts. It includes functions for authenticating with the Twitter API, loading seed terms, building search queries, saving results to CSV, and more.
