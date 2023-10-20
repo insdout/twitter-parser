@@ -45,3 +45,4 @@ This module contains utility functions used by the above scripts. It includes fu
 - pandas
 - tweepy
 - transformers
+- googletrans==4.0.0rc1
