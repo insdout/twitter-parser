@@ -30,7 +30,7 @@ def get_client():
     Returns:
         tuple: A tuple containing the Translation API client and the parent resource.
     """
-    
+
     credentials_path = "google_credentials.json"
     service_account_info = json.load(open(credentials_path))
     gcp_project_id = service_account_info["project_id"]
@@ -104,12 +104,12 @@ def main(file_path, output_folder="./output", batch_size=20, delay_seconds=0.0):
         texts=clean_tweet_text,
         batch_size=batch_size,
         delay_seconds=delay_seconds
-        )
+    )
     print(f" translated len: {len(translation)}")
 
     df["en_translation"] = None
     df.loc[mask, "en_translation"] = translation
- 
+
     csv_filename = os.path.join(output_folder, f"{file_name}_post_processed.csv")
     # Create folder if it doesn't exist
     os.makedirs(output_folder, exist_ok=True)
@@ -124,9 +124,11 @@ if __name__ == "__main__":
     batch_size = int(os.getenv("TRANSLATION_BATCH_SIZE"))
     delay_seconds = int(os.getenv("TRANSLATION_API_DELAY"))
 
-    print(f"Passed env variables:\nfilepath: {file_path} {type(file_path)}"
-          f"\noutput_folder: {output_folder} {type(output_folder)}"
-          f"\nbatch_size: {batch_size} {type(batch_size)}"
-          f"\ndelay_seconds: {delay_seconds} {type(delay_seconds)}")
+    print(
+        f"Passed env variables:\nfilepath: {file_path} {type(file_path)}"
+        f"\noutput_folder: {output_folder} {type(output_folder)}"
+        f"\nbatch_size: {batch_size} {type(batch_size)}"
+        f"\ndelay_seconds: {delay_seconds} {type(delay_seconds)}"
+    )
 
     main(file_path=file_path, output_folder=output_folder, batch_size=batch_size, delay_seconds=delay_seconds)

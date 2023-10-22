@@ -32,7 +32,8 @@ def main(bearer_token, query, tweets_limit, since,
         until=until,
         folder_path=folder_path,
         tweets_per_request=tweets_per_request,
-        sleep_delay=sleep_delay)
+        sleep_delay=sleep_delay
+    )
 
 
 if __name__ == "__main__":
@@ -53,15 +54,17 @@ if __name__ == "__main__":
     sleep_delay = env_variable_handler(os.getenv("SCRAPPER_SLEEP_DELAY"))
     sleep_delay = int(sleep_delay) if sleep_delay is not None else None
 
-    print(f"Passed env variables:\n"
-          f"Bearer Token: {bearer_token}\n"
-          f"Query: {query}\n"
-          f"Tweets Limit: {tweets_limit}\n"
-          f"Since: {since}\n"
-          f"Until: {until}\n"
-          f"Folder Path: {folder_path}\n"
-          f"Tweets per Request: {tweets_per_request}\n"
-          f"Sleep Delay: {sleep_delay}")
+    print(
+        f"Passed env variables:\n"
+        f"Bearer Token: {bearer_token}\n"
+        f"Query: {query}\n"
+        f"Tweets Limit: {tweets_limit}\n"
+        f"Since: {since}\n"
+        f"Until: {until}\n"
+        f"Folder Path: {folder_path}\n"
+        f"Tweets per Request: {tweets_per_request}\n"
+        f"Sleep Delay: {sleep_delay}"
+    )
 
     main(
         bearer_token=bearer_token,
@@ -72,4 +75,4 @@ if __name__ == "__main__":
         folder_path=folder_path,
         tweets_per_request=tweets_per_request,
         sleep_delay=sleep_delay
-        )
+    )
