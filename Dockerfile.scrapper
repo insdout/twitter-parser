@@ -1,0 +1,9 @@
+FROM continuumio/anaconda3
+
+WORKDIR /app
+COPY ./app/scrapper.py ./app/utils.py ./requirements_scrapper.txt ./
+
+RUN pip install -r requirements_scrapper.txt
+
+
+CMD [ "python", "./scrapper.py" ]

@@ -1,0 +1,10 @@
+FROM continuumio/anaconda3
+
+WORKDIR /app
+COPY ./app/translator_api.py ./app/google_credentials.json ./requirements_translator_api.txt ./
+
+RUN pip install -r requirements_translator_api.txt
+RUN pip install --upgrade google-cloud-translate
+
+
+CMD [ "python", "./translator_api.py" ]

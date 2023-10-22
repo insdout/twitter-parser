@@ -14,5 +14,5 @@ RUN mkdir /home_mount
 
 # Install any needed packages specified in requirements.txt
 RUN /opt/conda/envs/py39/bin/pip install -r requirements.txt
-
+RUN /opt/conda/envs/py39/bin/pip install --upgrade google-cloud-translate
 CMD ["bash"]
