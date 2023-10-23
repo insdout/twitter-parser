@@ -13,8 +13,7 @@ The script performs the following tasks:
 1. **Twitter Data Crawling:** Uses the Twitter API to crawl recent tweets based on specified parameters.
 Saves the crawled data as a CSV file.
 Parameter Handling:
-
-2. **Reads environment variables to set various parameters, making the script highly configurable.**
+    - Reads environment variables to set various parameters, making the script highly configurable.
 
 #### Usage
 1. Before running the script, make sure to set the required environment variables. You can reference these variables in a .env file. Here are the expected environment variables:
