@@ -59,21 +59,21 @@ This module contains utility functions used by the above scripts. It includes fu
 1. Clone the repository to your local machine.
 2. Obtain Twitter API bearer token and save it in a .env file by variable name  `SCRAPPER_TOKEN`.
 3. Obtain Google cloud service account credentials and save them to ./app/google_credentials.json
-3. Edit .env file variables according to your needs.
-4. Build scrapper_image Docker image:
+4. Edit .env file variables according to your needs.
+5. Build scrapper_image Docker image:
 ```bash
 docker build -t scrapper_image -f Dockerfile.scrapper .
 ```
-5. Build translator_image Docker image:
+6. Build translator_image Docker image:
 ```bash
 docker build -t translator_image -f Dockerfile.translator .
 ```
-6. Use scrapper_image:
+7. Use scrapper_image:
 ```bash
 docker run -v $(pwd)/data:/app/data --env-file=.env -e QUERY="hamas -is:retweet  lang:en" scrapper_image
 
 ```
-7. Use translator_image:
+8. Use translator_image:
 
 ```bash
 docker run -v $(pwd)/data:/app/data -v $(pwd)/output:/app/output --env-file=.env -e FILE_TO_TRANSLATE=data/20231020_230726.csv translator_image
