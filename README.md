@@ -27,7 +27,7 @@ Parameter Handling:
     - `SCRAPPER_TWEETS_PER_REQUEST`: The number of tweets to request per API call (default is None).
     - `SCRAPPER_SLEEP_DELAY`: The delay in seconds between each API request (default is None).
 
-### `postprocess.py`
+### `translator_api.py`
 
 This script is designed to process CSV files containing tweet data. It performs the following tasks:
 
