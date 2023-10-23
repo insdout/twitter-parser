@@ -6,7 +6,7 @@ This repository contains a set of Python scripts for scraping and processing Twi
 
 ### `scrapper.py`
 
-This script provides a command-line interface for building and executing Twitter search queries. It takes various parameters such as query body, inclusion of retweets, language, seed term, date range, and more.
+This script provides a command-line interface for building and executing Twitter search queries. It takes various parameters such as query body, inclusion of retweets, language, seed term, date range, and more.  
 
 **Script Overview**
 
